@@ -12,7 +12,7 @@ A machine learning and petrophysical analysis workflow built on real Norwegian N
 
 ## Dataset
 
-This project uses the [FORCE 2020 competition repository](https://github.com/bolgebrygg/Force-2020-Machine-Learning-competition) and [archived dataset](https://zenodo.org/records/4351156). Obtain the competition training CSV (`CSV_train.csv`; semicolon-separated) from the [competition data folder](https://drive.google.com/drive/folders/0B7brcf-eGK8CRUhfRW9rSG91bW8) and place it in `data/raw/`. The notebooks split the labelled training file internally; the competition test file is not needed for this workflow. Follow the dataset's usage terms and do not commit raw data or model binaries.
+This project uses the FORCE 2020 competition repository and zenodo dataset. Obtain the competition training CSV (`CSV_train.csv`  from the [competition data folder](https://drive.google.com/drive/folders/0B7brcf-eGK8CRUhfRW9rSG91bW8) and place it in `data/raw/`. The notebooks split the labelled training file internally; the competition test file is not needed for this workflow. Follow the dataset's usage terms and do not commit raw data or model binaries.
 
 | Curve | Engineering meaning |
 | --- | --- |
@@ -42,7 +42,6 @@ Evaluation uses a well-based split of 79 training wells and 19 held-out wells. P
 notebooks/       # five-stage ML workflow
 scripts/         # path setup script and standalone QC utility
 tests/           # QC unit tests
-docs/            # project documentation and technical notes
 data/raw/        # local source data (not committed)
 data/processed/  # local intermediate data
 outputs/figures/ # generated plots and summary figures
@@ -64,6 +63,14 @@ python -m jupyter notebook
 ```
 
 Run notebooks `01` through `05` in numeric order. The standalone QC utility can be run independently before model training:
+
+## Results:
+To view all results check outputs/figures 
+<img width="2612" height="1225" alt="lithology_confusion_matrices" src="https://github.com/user-attachments/assets/40582b48-d054-4ba8-8e4c-0f86dbf98f2c" />
+<img width="1482" height="733" alt="lithology_distribution" src="https://github.com/user-attachments/assets/cbf63994-edb9-4621-8559-4a4cdeb0ed1a" />
+
+
+
 
 ```bash
 python scripts/log_qc.py data/raw/CSV_train.csv --well "15/9-13"
